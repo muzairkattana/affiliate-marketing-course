@@ -105,8 +105,8 @@ export default function ProductResearchTool() {
         <h3 className="text-xl font-bold text-[#2C3E50]">Product Research Tool</h3>
       </div>
 
-      <div className="grid md:grid-cols-4 gap-4 mb-6">
-        <div className="md:col-span-2">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-4 gap-4 mb-6">
+        <div className="lg:col-span-2">
           <Label htmlFor="search" className="text-sm font-medium text-gray-700">
             Search Products
           </Label>
@@ -117,7 +117,7 @@ export default function ProductResearchTool() {
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              className="pl-10 h-11 touch-target"
               placeholder="Search for products..."
             />
           </div>
@@ -128,7 +128,7 @@ export default function ProductResearchTool() {
             Category
           </Label>
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-            <SelectTrigger className="mt-1">
+            <SelectTrigger className="mt-1 h-11 touch-target">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -144,7 +144,7 @@ export default function ProductResearchTool() {
             Price Range
           </Label>
           <Select value={priceRange} onValueChange={setPriceRange}>
-            <SelectTrigger className="mt-1">
+            <SelectTrigger className="mt-1 h-11 touch-target">
               <SelectValue />
             </SelectTrigger>
             <SelectContent>
@@ -159,18 +159,20 @@ export default function ProductResearchTool() {
 
       <div className="space-y-3">
         {filteredProducts.map((product, idx) => (
-          <Card key={idx} className="p-4 hover:shadow-md transition-shadow border border-gray-200">
-            <div className="flex items-start justify-between">
+          <Card key={idx} className="p-3 sm:p-4 hover:shadow-md transition-shadow border border-gray-200">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <Package className="w-5 h-5 text-[#FF6B35]" />
-                  <h4 className="font-semibold text-[#2C3E50]">{product.name}</h4>
-                  <Badge className={getDemandColor(product.demand)}>
+                <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                  <Package className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF6B35] flex-shrink-0" />
+                  <h4 className="font-semibold text-[#2C3E50] text-sm sm:text-base line-clamp-2">{product.name}</h4>
+                </div>
+                <div className="mb-2">
+                  <Badge className={`${getDemandColor(product.demand)} text-xs`}>
                     {product.demand} Demand
                   </Badge>
                 </div>
                 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div className="grid grid-cols-2 gap-2 sm:gap-4 text-xs sm:text-sm">
                   <div>
                     <span className="text-gray-500">Price:</span>
                     <p className="font-semibold text-gray-900">PKR {product.price}</p>
@@ -186,19 +188,19 @@ export default function ProductResearchTool() {
                   <div>
                     <span className="text-gray-500">Rating:</span>
                     <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                      <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 fill-current" />
                       <span className="font-semibold">{product.rating}</span>
                     </div>
                   </div>
                 </div>
               </div>
               
-              <div className="ml-4 text-right">
-                <div className="flex items-center gap-1 text-green-600 font-semibold">
-                  <TrendingUp className="w-4 h-4" />
+              <div className="flex sm:flex-col items-center sm:items-end gap-2 sm:gap-0 sm:text-right">
+                <div className="flex items-center gap-1 text-green-600 font-semibold text-xs sm:text-sm">
+                  <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
                   <span>{product.trend}</span>
                 </div>
-                <Button size="sm" className="mt-2 bg-[#FF6B35] hover:bg-[#E55A2B] text-white">
+                <Button size="sm" className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white mobile-button text-xs sm:text-sm">
                   View Details
                 </Button>
               </div>
@@ -207,8 +209,8 @@ export default function ProductResearchTool() {
         ))}
       </div>
 
-      <div className="mt-6 p-4 bg-blue-50 border-l-4 border-l-blue-400 rounded">
-        <p className="text-sm text-gray-700">
+      <div className="mt-6 p-3 sm:p-4 bg-blue-50 border-l-4 border-l-blue-400 rounded">
+        <p className="text-xs sm:text-sm text-gray-700">
           <strong>Pro Tip:</strong> Focus on products with "Very High" demand and upward trends. 
           These typically have higher conversion rates and better customer satisfaction. 
           Update your research weekly to stay ahead of market trends.

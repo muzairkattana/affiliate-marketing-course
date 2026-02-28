@@ -309,20 +309,20 @@ export default function BeginnerSuccessWorkflow() {
   return (
     <div className="space-y-8">
       {/* Overall Progress */}
-      <Card className="p-6 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] text-white">
-        <div className="flex items-center justify-between mb-4">
+      <Card className="p-4 sm:p-6 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] text-white">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-4">
           <div>
-            <h3 className="text-2xl font-bold mb-2">Your 90-Day Success Journey</h3>
-            <p className="text-white/90">Follow this exact workflow to reach PKR 50,000+ monthly income</p>
+            <h3 className="text-xl sm:text-2xl font-bold mb-2">Your 90-Day Success Journey</h3>
+            <p className="text-white/90 text-sm sm:text-base">Follow this exact workflow to reach PKR 50,000+ monthly income</p>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold">{Math.round(overallProgress)}%</div>
+          <div className="text-center sm:text-right">
+            <div className="text-2xl sm:text-3xl font-bold">{Math.round(overallProgress)}%</div>
             <div className="text-sm text-white/80">{completedTasks.size}/{totalTasks} completed</div>
           </div>
         </div>
-        <div className="w-full bg-white/20 rounded-full h-3">
+        <div className="w-full bg-white/20 rounded-full h-2 sm:h-3">
           <div 
-            className="bg-white h-3 rounded-full transition-all duration-300"
+            className="bg-white h-2 sm:h-3 rounded-full transition-all duration-300"
             style={{ width: `${overallProgress}%` }}
           />
         </div>
@@ -337,17 +337,17 @@ export default function BeginnerSuccessWorkflow() {
           return (
             <Card key={phaseIdx} className="overflow-hidden border-l-4 border-l-[#FF6B35]">
               <div 
-                className="p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                className="p-4 sm:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
                 onClick={() => setExpandedPhase(isExpanded ? null : phase.phase)}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div className={`p-3 rounded-lg text-white ${phase.color}`}>
-                      {phase.icon}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className={`p-2 sm:p-3 rounded-lg text-white ${phase.color} flex-shrink-0`}>
+                      <div className="w-4 h-4 sm:w-6 sm:h-6">{phase.icon}</div>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-[#2C3E50]">{phase.phase}</h3>
-                      <p className="text-gray-600">
+                      <h3 className="text-lg sm:text-xl font-bold text-[#2C3E50]">{phase.phase}</h3>
+                      <p className="text-gray-600 text-sm">
                         {phase.tasks.filter((_, idx) => completedTasks.has(`${phase.phase}-${idx}`)).length} of {phase.tasks.length} tasks completed
                       </p>
                     </div>
@@ -355,72 +355,73 @@ export default function BeginnerSuccessWorkflow() {
                   <div className="flex items-center gap-3">
                     <div className="text-right">
                       <div className="text-sm font-semibold text-[#27AE60]">{Math.round(phaseProgress)}%</div>
-                      <div className="w-16 bg-gray-200 rounded-full h-2">
+                      <div className="w-12 sm:w-16 bg-gray-200 rounded-full h-1.5 sm:h-2">
                         <div 
-                          className="bg-[#27AE60] h-2 rounded-full transition-all duration-300"
+                          className="bg-[#27AE60] h-1.5 sm:h-2 rounded-full transition-all duration-300"
                           style={{ width: `${phaseProgress}%` }}
                         />
                       </div>
                     </div>
-                    <Award className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-180' : ''} text-gray-400`} />
+                    <Award className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform ${isExpanded ? 'rotate-180' : ''} text-gray-400`} />
                   </div>
                 </div>
               </div>
 
               {isExpanded && (
-                <div className="px-6 pb-6 border-t border-gray-100">
-                  <div className="space-y-4 mt-4">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6 border-t border-gray-100">
+                  <div className="space-y-3 sm:space-y-4 mt-4">
                     {phase.tasks.map((task, taskIdx) => {
                       const taskId = `${phase.phase}-${taskIdx}`;
                       const isCompleted = completedTasks.has(taskId);
                       
                       return (
-                        <Card key={taskIdx} className={`p-4 ${isCompleted ? 'bg-green-50 border-green-200' : 'bg-white'}`}>
-                          <div className="flex items-start gap-4">
+                        <Card key={taskIdx} className={`p-3 sm:p-4 ${isCompleted ? 'bg-green-50 border-green-200' : 'bg-white'}`}>
+                          <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
                                 toggleTask(taskId);
                               }}
-                              className="mt-1"
+                              className="mt-1 touch-target"
                             >
                               {isCompleted ? (
-                                <CheckCircle2 className="w-6 h-6 text-green-500" />
+                                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-green-500" />
                               ) : (
-                                <Circle className="w-6 h-6 text-gray-400 hover:text-gray-600" />
+                                <Circle className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400 hover:text-gray-600" />
                               )}
                             </button>
                             
                             <div className="flex-1">
-                              <div className="flex items-center gap-3 mb-2">
-                                <h4 className={`font-semibold ${isCompleted ? 'text-gray-500 line-through' : 'text-[#2C3E50]'}`}>
+                              <div className="flex flex-wrap items-center gap-2 mb-2">
+                                <h4 className={`font-semibold text-sm sm:text-base ${isCompleted ? 'text-gray-500 line-through' : 'text-[#2C3E50]'}`}>
                                   {task.title}
                                 </h4>
-                                <Badge className={getDifficultyColor(task.difficulty)}>
+                                <Badge className={`${getDifficultyColor(task.difficulty)} text-xs`}>
                                   {task.difficulty}
                                 </Badge>
-                                <Badge variant="outline" className="text-blue-600 border-blue-600">
+                                <Badge variant="outline" className="text-blue-600 border-blue-600 text-xs">
                                   {task.time}
                                 </Badge>
                               </div>
                               
                               <p className="text-gray-600 text-sm mb-3">{task.description}</p>
                               
-                              <div className="flex items-center gap-3">
+                              <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
                                 <Button 
                                   size="sm" 
-                                  className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white"
+                                  className="bg-[#FF6B35] hover:bg-[#E55A2B] text-white mobile-button text-xs"
                                   onClick={(e) => e.stopPropagation()}
                                 >
-                                  <ExternalLink className="w-4 h-4 mr-1" />
+                                  <ExternalLink className="w-3 h-3 mr-1" />
                                   {task.action}
                                 </Button>
                                 <Button 
                                   size="sm" 
                                   variant="outline"
                                   onClick={(e) => e.stopPropagation()}
+                                  className="text-xs"
                                 >
-                                  <Play className="w-4 h-4 mr-1" />
+                                  <Play className="w-3 h-3 mr-1" />
                                   Tutorial
                                 </Button>
                               </div>
@@ -438,24 +439,24 @@ export default function BeginnerSuccessWorkflow() {
       </div>
 
       {/* Essential Tools Section */}
-      <Card className="p-6 border-l-4 border-l-[#27AE60]">
-        <h3 className="text-xl font-bold text-[#2C3E50] mb-4">Essential Tools for Success</h3>
-        <div className="grid md:grid-cols-2 gap-4">
+      <Card className="p-4 sm:p-6 border-l-4 border-l-[#27AE60]">
+        <h3 className="text-lg sm:text-xl font-bold text-[#2C3E50] mb-4">Essential Tools for Success</h3>
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
           {essentialTools.map((tool, idx) => (
-            <Card key={idx} className="p-4 border border-gray-200">
+            <Card key={idx} className="p-3 sm:p-4 border border-gray-200">
               <div className="flex items-start justify-between mb-2">
                 <div>
-                  <h4 className="font-semibold text-[#2C3E50]">{tool.name}</h4>
+                  <h4 className="font-semibold text-[#2C3E50] text-sm sm:text-base">{tool.name}</h4>
                   <Badge variant="outline" className="text-xs">{tool.category}</Badge>
                 </div>
                 {tool.essential && (
-                  <Badge className="bg-red-100 text-red-800">Essential</Badge>
+                  <Badge className="bg-red-100 text-red-800 text-xs">Essential</Badge>
                 )}
               </div>
-              <p className="text-sm text-gray-600 mb-3">{tool.description}</p>
+              <p className="text-xs sm:text-sm text-gray-600 mb-3">{tool.description}</p>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-gray-500">{tool.price}</span>
-                <Button size="sm" variant="outline" asChild>
+                <Button size="sm" variant="outline" asChild className="text-xs">
                   <a href={tool.link} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-3 h-3 mr-1" />
                     Visit
@@ -468,12 +469,12 @@ export default function BeginnerSuccessWorkflow() {
       </Card>
 
       {/* Success Tips */}
-      <Card className="p-6 bg-gradient-to-r from-[#27AE60] to-[#2C3E50] text-white">
-        <h3 className="text-xl font-bold mb-4">🎯 Success Tips for Beginners</h3>
-        <div className="grid md:grid-cols-2 gap-4">
+      <Card className="p-4 sm:p-6 bg-gradient-to-r from-[#27AE60] to-[#2C3E50] text-white">
+        <h3 className="text-lg sm:text-xl font-bold mb-4">🎯 Success Tips for Beginners</h3>
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold mb-2">Do This:</h4>
-            <ul className="space-y-1 text-sm">
+            <h4 className="font-semibold mb-2 text-sm sm:text-base">Do This:</h4>
+            <ul className="space-y-1 text-xs sm:text-sm">
               <li>✅ Complete one phase before starting the next</li>
               <li>✅ Focus on ONE platform first (YouTube recommended)</li>
               <li>✅ Create content consistently (minimum 3x per week)</li>
@@ -482,8 +483,8 @@ export default function BeginnerSuccessWorkflow() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold mb-2">Avoid This:</h4>
-            <ul className="space-y-1 text-sm">
+            <h4 className="font-semibold mb-2 text-sm sm:text-base">Avoid This:</h4>
+            <ul className="space-y-1 text-xs sm:text-sm">
               <li>❌ Don't promote everything - stay in your niche</li>
               <li>❌ Don't buy expensive equipment initially</li>
               <li>❌ Don't expect overnight success</li>

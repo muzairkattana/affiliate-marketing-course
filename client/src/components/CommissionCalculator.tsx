@@ -40,7 +40,7 @@ export default function CommissionCalculator() {
         <h3 className="text-xl font-bold text-[#2C3E50]">Commission Calculator</h3>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div>
             <Label htmlFor="price" className="text-sm font-medium text-gray-700">
@@ -51,7 +51,7 @@ export default function CommissionCalculator() {
               type="number"
               value={productPrice}
               onChange={(e) => setProductPrice(e.target.value)}
-              className="mt-1"
+              className="mt-1 h-11 touch-target"
               placeholder="10000"
             />
           </div>
@@ -61,7 +61,7 @@ export default function CommissionCalculator() {
               Product Category
             </Label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger className="mt-1">
+              <SelectTrigger className="mt-1 h-11 touch-target">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -86,7 +86,7 @@ export default function CommissionCalculator() {
               type="number"
               value={monthlySales}
               onChange={(e) => setMonthlySales(e.target.value)}
-              className="mt-1"
+              className="mt-1 h-11 touch-target"
               placeholder="10"
             />
           </div>
@@ -101,16 +101,16 @@ export default function CommissionCalculator() {
               step="0.1"
               value={conversionRate}
               onChange={(e) => setConversionRate(e.target.value)}
-              className="mt-1"
+              className="mt-1 h-11 touch-target"
               placeholder="2"
             />
           </div>
         </div>
 
         <div className="space-y-4">
-          <div className="bg-[#E8F5E8] p-4 rounded-lg">
-            <p className="text-sm text-gray-600 mb-1">Commission per Sale</p>
-            <p className="text-2xl font-bold text-[#27AE60]">
+          <div className="bg-[#E8F5E8] p-3 sm:p-4 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-600 mb-1">Commission per Sale</p>
+            <p className="text-lg sm:text-2xl font-bold text-[#27AE60]">
               PKR {commissionPerSale.toLocaleString()}
             </p>
             <p className="text-xs text-gray-500 mt-1">
@@ -118,9 +118,9 @@ export default function CommissionCalculator() {
             </p>
           </div>
 
-          <div className="bg-[#FFF3E0] p-4 rounded-lg">
-            <p className="text-sm text-gray-600 mb-1">Monthly Commission</p>
-            <p className="text-2xl font-bold text-[#FF6B35]">
+          <div className="bg-[#FFF3E0] p-3 sm:p-4 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-600 mb-1">Monthly Commission</p>
+            <p className="text-lg sm:text-2xl font-bold text-[#FF6B35]">
               PKR {monthlyCommission.toLocaleString()}
             </p>
             <p className="text-xs text-gray-500 mt-1">
@@ -128,9 +128,9 @@ export default function CommissionCalculator() {
             </p>
           </div>
 
-          <div className="bg-[#E3F2FD] p-4 rounded-lg">
-            <p className="text-sm text-gray-600 mb-1">Required Monthly Clicks</p>
-            <p className="text-2xl font-bold text-[#2C3E50]">
+          <div className="bg-[#E3F2FD] p-3 sm:p-4 rounded-lg">
+            <p className="text-xs sm:text-sm text-gray-600 mb-1">Required Monthly Clicks</p>
+            <p className="text-lg sm:text-2xl font-bold text-[#2C3E50]">
               {Math.round(monthlyClicks).toLocaleString()}
             </p>
             <p className="text-xs text-gray-500 mt-1">
@@ -138,9 +138,9 @@ export default function CommissionCalculator() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-r from-[#2C3E50] to-[#FF6B35] p-4 rounded-lg text-white">
-            <p className="text-sm text-white/90 mb-1">Yearly Projection</p>
-            <p className="text-2xl font-bold">
+          <div className="bg-gradient-to-r from-[#2C3E50] to-[#FF6B35] p-3 sm:p-4 rounded-lg text-white">
+            <p className="text-xs sm:text-sm text-white/90 mb-1">Yearly Projection</p>
+            <p className="text-lg sm:text-2xl font-bold">
               PKR {yearlyCommission.toLocaleString()}
             </p>
             <p className="text-xs text-white/80 mt-1">
@@ -150,8 +150,8 @@ export default function CommissionCalculator() {
         </div>
       </div>
 
-      <div className="mt-6 p-4 bg-[#FEF5F5] border-l-4 border-l-[#E74C3C] rounded">
-        <p className="text-sm text-gray-700">
+      <div className="mt-6 p-3 sm:p-4 bg-[#FEF5F5] border-l-4 border-l-[#E74C3C] rounded">
+        <p className="text-xs sm:text-sm text-gray-700">
           <strong>Note:</strong> These are estimates. Actual earnings depend on product availability, 
           seasonal demand, and Daraz's commission rate changes. Focus on building consistent traffic 
           and optimizing conversion rates.

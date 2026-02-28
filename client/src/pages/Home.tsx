@@ -9,6 +9,8 @@ import ProgressTracker from "@/components/ProgressTracker";
 import BeginnerSuccessWorkflow from "@/components/BeginnerSuccessWorkflow";
 import PlatformLinksHub from "@/components/PlatformLinksHub";
 import SuccessMetrics from "@/components/SuccessMetrics";
+import { OptimizedImage } from "@/components/OptimizedImage";
+import { Logo, LogoIcon } from "@/components/Logo";
 
 /**
  * Design Philosophy: Modern Professional Authority
@@ -161,30 +163,42 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] py-20 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 px-4">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: 'url(/header_image.webp)' }}
+        />
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div className="relative z-10 container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
-                Master Daraz Affiliate Marketing in Pakistan
-              </h1>
-              <p className="text-xl text-white/90 mb-8">
+              <div className="mb-6">
+                <div>
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2 leading-tight">
+                    Daraz Affiliate Pro
+                  </h1>
+                  <p className="text-lg sm:text-xl text-white/90">Master Affiliate Marketing in Pakistan</p>
+                </div>
+              </div>
+              <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8">
                 Complete A-to-Z guide for beginners to advanced marketers. Learn to build sustainable income from home.
               </p>
-              <div className="flex gap-4">
-                <Button size="lg" className="bg-[#27AE60] hover:bg-[#229954] text-white">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button size="lg" className="bg-[#27AE60] hover:bg-[#229954] text-white mobile-button w-full sm:w-auto">
                   Start Learning
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 mobile-button w-full sm:w-auto">
                   View Roadmap
                 </Button>
               </div>
             </div>
-            <div className="hidden md:block">
-              <img
+            <div className="order-first lg:order-last">
+              <OptimizedImage
                 src="https://d2xsxph8kpxj0f.cloudfront.net/310419663031784585/WuvUW3qG3XmmJ6Nv6CQMWh/hero-banner-main-EbBfucga35nBb7yNT54xk8.webp"
                 alt="Daraz Affiliate Marketing Hero"
                 className="w-full rounded-lg shadow-2xl"
+                priority={true}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
               />
             </div>
           </div>
@@ -192,61 +206,61 @@ export default function Home() {
       </section>
 
       {/* Key Statistics */}
-      <section className="bg-white py-12 px-4 border-b border-border">
+      <section className="bg-white py-8 sm:py-12 px-4 border-b border-border">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#FF6B35] mb-2">11</div>
-              <p className="text-gray-600">Comprehensive Sections</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#FF6B35] mb-2">11</div>
+              <p className="text-xs sm:text-sm md:text-base text-gray-600">Comprehensive Sections</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#27AE60] mb-2">5</div>
-              <p className="text-gray-600">Traffic Platforms</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#27AE60] mb-2">5</div>
+              <p className="text-xs sm:text-sm md:text-base text-gray-600">Traffic Platforms</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#2C3E50] mb-2">100%</div>
-              <p className="text-gray-600">Pakistan Focused</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#2C3E50] mb-2">100%</div>
+              <p className="text-xs sm:text-sm md:text-base text-gray-600">Pakistan Focused</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-[#F39C12] mb-2">∞</div>
-              <p className="text-gray-600">Scalable Income</p>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#F39C12] mb-2">∞</div>
+              <p className="text-xs sm:text-sm md:text-base text-gray-600">Scalable Income</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Main Content Sections */}
-      <section className="py-16 px-4 bg-background">
+      <section className="py-12 sm:py-16 px-4 bg-background">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 text-[#2C3E50]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4 text-[#2C3E50]">
             Complete Training Modules
           </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
+          <p className="text-center text-gray-600 mb-8 sm:mb-12 text-base sm:text-lg px-4">
             Master each aspect of Daraz affiliate marketing with detailed, actionable modules
           </p>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
             {sections.map((section) => (
               <Card
                 key={section.id}
-                className="p-6 hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-[#FF6B35]"
+                className="p-4 sm:p-6 hover:shadow-lg transition-shadow cursor-pointer border-l-4 border-l-[#FF6B35] mobile-card"
                 onClick={() => setExpandedSection(expandedSection === section.id ? null : section.id)}
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="text-[#FF6B35] mt-1">{section.icon}</div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-[#2C3E50] mb-2">{section.title}</h3>
-                    <p className="text-gray-600 text-sm">{section.description}</p>
+                <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
+                  <div className="text-[#FF6B35] mt-1 flex-shrink-0">{section.icon}</div>
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#2C3E50] mb-2 line-clamp-2">{section.title}</h3>
+                    <p className="text-gray-600 text-sm line-clamp-3">{section.description}</p>
                   </div>
                 </div>
 
                 {expandedSection === section.id && (
-                  <div className="mt-6 pt-6 border-t border-border">
-                    <div className="space-y-3">
+                  <div className="mt-4 sm:mt-6 pt-4 sm:pt-6 border-t border-border">
+                    <div className="space-y-2 sm:space-y-3">
                       {section.subsections.map((subsection, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle2 className="w-5 h-5 text-[#27AE60] flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{subsection}</span>
+                        <div key={idx} className="flex items-start gap-2 sm:gap-3">
+                          <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#27AE60] flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700 text-sm">{subsection}</span>
                         </div>
                       ))}
                     </div>
@@ -259,41 +273,41 @@ export default function Home() {
       </section>
 
       {/* Income Roadmap */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-12 sm:py-16 px-4 bg-white">
         <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4 text-[#2C3E50]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-3 sm:mb-4 text-[#2C3E50]">
             Income Scaling Roadmap
           </h2>
-          <p className="text-center text-gray-600 mb-12 text-lg">
+          <p className="text-center text-gray-600 mb-8 sm:mb-12 text-base sm:text-lg px-4">
             Realistic progression from beginner to authority in one year
           </p>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {roadmap.map((phase, idx) => (
-              <Card key={idx} className="p-6 bg-gradient-to-br from-white to-[#F8F9FA] border-t-4 border-t-[#FF6B35]">
-                <h3 className="text-lg font-bold text-[#2C3E50] mb-4">{phase.phase}</h3>
+              <Card key={idx} className="p-4 sm:p-6 bg-gradient-to-br from-white to-[#F8F9FA] border-t-4 border-t-[#FF6B35] mobile-card">
+                <h3 className="text-base sm:text-lg font-bold text-[#2C3E50] mb-3 sm:mb-4">{phase.phase}</h3>
 
-                <div className="space-y-4 mb-6">
+                <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Expected Earnings</p>
-                    <p className="text-xl font-bold text-[#27AE60]">{phase.earnings}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-1">Expected Earnings</p>
+                    <p className="text-lg sm:text-xl font-bold text-[#27AE60]">{phase.earnings}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Monthly Clicks</p>
-                    <p className="text-xl font-bold text-[#FF6B35]">{phase.clicks}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-1">Monthly Clicks</p>
+                    <p className="text-lg sm:text-xl font-bold text-[#FF6B35]">{phase.clicks}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600 mb-1">Sales</p>
-                    <p className="text-xl font-bold text-[#2C3E50]">{phase.sales}</p>
+                    <p className="text-xs sm:text-sm text-gray-600 mb-1">Sales</p>
+                    <p className="text-lg sm:text-xl font-bold text-[#2C3E50]">{phase.sales}</p>
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-sm font-semibold text-gray-700 mb-3">Key Tasks:</p>
+                  <p className="text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">Key Tasks:</p>
                   {phase.tasks.map((task, taskIdx) => (
                     <div key={taskIdx} className="flex items-start gap-2">
-                      <div className="w-2 h-2 bg-[#FF6B35] rounded-full mt-2 flex-shrink-0" />
-                      <span className="text-sm text-gray-600">{task}</span>
+                      <div className="w-2 h-2 bg-[#FF6B35] rounded-full mt-1.5 sm:mt-2 flex-shrink-0" />
+                      <span className="text-xs sm:text-sm text-gray-600">{task}</span>
                     </div>
                   ))}
                 </div>
@@ -314,30 +328,36 @@ export default function Home() {
           </p>
 
           <Tabs defaultValue="workflow" className="w-full">
-            <TabsList className="grid w-full grid-cols-6 mb-8">
-              <TabsTrigger value="workflow" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white">
-                <Rocket className="w-4 h-4 mr-1" />
-                Success Workflow
+            <TabsList className="grid w-full grid-cols-3 sm:grid-cols-6 mb-6 sm:mb-8 gap-1 sm:gap-2">
+              <TabsTrigger value="workflow" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2">
+                <Rocket className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                <span className="hidden sm:inline">Success Workflow</span>
+                <span className="sm:hidden">Workflow</span>
               </TabsTrigger>
-              <TabsTrigger value="platforms" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white">
-                <Link2 className="w-4 h-4 mr-1" />
-                Platform Links
+              <TabsTrigger value="platforms" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2">
+                <Link2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                <span className="hidden sm:inline">Platform Links</span>
+                <span className="sm:hidden">Platforms</span>
               </TabsTrigger>
-              <TabsTrigger value="calculator" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white">
-                <Calculator className="w-4 h-4 mr-1" />
-                Commission Calc
+              <TabsTrigger value="calculator" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2">
+                <Calculator className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                <span className="hidden sm:inline">Commission Calc</span>
+                <span className="sm:hidden">Calc</span>
               </TabsTrigger>
-              <TabsTrigger value="research" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white">
-                <Search className="w-4 h-4 mr-1" />
-                Product Research
+              <TabsTrigger value="research" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2">
+                <Search className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                <span className="hidden sm:inline">Product Research</span>
+                <span className="sm:hidden">Research</span>
               </TabsTrigger>
-              <TabsTrigger value="progress" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white">
-                <Target className="w-4 h-4 mr-1" />
-                Progress Tracker
+              <TabsTrigger value="progress" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2">
+                <Target className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                <span className="hidden sm:inline">Progress Tracker</span>
+                <span className="sm:hidden">Progress</span>
               </TabsTrigger>
-              <TabsTrigger value="metrics" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white">
-                <BarChart3 className="w-4 h-4 mr-1" />
-                Success Metrics
+              <TabsTrigger value="metrics" className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2">
+                <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 mr-1" />
+                <span className="hidden sm:inline">Success Metrics</span>
+                <span className="sm:hidden">Metrics</span>
               </TabsTrigger>
             </TabsList>
             
@@ -455,19 +475,19 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-[#2C3E50] to-[#FF6B35]">
+      <section className="py-12 sm:py-16 px-4 bg-gradient-to-r from-[#2C3E50] to-[#FF6B35]">
         <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             Ready to Start Your Daraz Affiliate Journey?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             This comprehensive guide covers everything from account setup to scaling to PKR 1,000,000+ monthly income. Start with the 30-day action plan and follow the roadmap.
           </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-[#27AE60] hover:bg-[#229954] text-white">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
+            <Button size="lg" className="bg-[#27AE60] hover:bg-[#229954] text-white mobile-button w-full sm:w-auto">
               Download Full Guide
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 mobile-button w-full sm:w-auto">
               View Case Study
             </Button>
           </div>
@@ -475,12 +495,12 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1A1A1A] text-white py-12 px-4">
+      <footer className="bg-[#1A1A1A] text-white py-8 sm:py-12 px-4">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
             <div>
-              <h4 className="font-bold mb-4">Guide Sections</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Guide Sections</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white">Mindset & Foundation</a></li>
                 <li><a href="#" className="hover:text-white">Technical Setup</a></li>
                 <li><a href="#" className="hover:text-white">Niche Selection</a></li>
@@ -488,8 +508,8 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Resources</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white">Daraz Affiliate Program</a></li>
                 <li><a href="#" className="hover:text-white">FBR Guidelines</a></li>
                 <li><a href="#" className="hover:text-white">SEO Tools</a></li>
@@ -497,8 +517,8 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Tools</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Tools</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white">Keyword Research</a></li>
                 <li><a href="#" className="hover:text-white">Content Calendar</a></li>
                 <li><a href="#" className="hover:text-white">Analytics Dashboard</a></li>
@@ -506,8 +526,8 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Legal</h4>
-              <ul className="space-y-2 text-sm text-gray-400">
+              <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">Legal</h4>
+              <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400">
                 <li><a href="#" className="hover:text-white">Affiliate Rules</a></li>
                 <li><a href="#" className="hover:text-white">Tax Guidelines</a></li>
                 <li><a href="#" className="hover:text-white">Disclosure Policy</a></li>
@@ -516,11 +536,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="border-t border-gray-800 pt-8">
-            <p className="text-center text-gray-400 mb-2">
+          <div className="border-t border-gray-800 pt-6 sm:pt-8">
+            <p className="text-center text-gray-400 mb-2 text-xs sm:text-sm">
               © 2026 Daraz Affiliate Marketing Guide Pakistan. All rights reserved. | Created for Pakistani entrepreneurs
             </p>
-            <p className="text-center text-gray-500 text-sm">
+            <p className="text-center text-gray-500 text-xs">
               DEVELOPED AND DESIGN BY UZAIR AI STUDIO
             </p>
           </div>

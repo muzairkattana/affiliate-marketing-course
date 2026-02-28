@@ -5,6 +5,9 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import { PWAInstallButton } from "./components/PWAInstallButton";
+import { MobileNavigation } from "./components/MobileNavigation";
+import { useState } from "react";
 
 
 function Router() {
@@ -24,6 +27,8 @@ function Router() {
 // - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
 
 function App() {
+  const [activeTab, setActiveTab] = useState('home');
+
   return (
     <ErrorBoundary>
       <ThemeProvider
@@ -32,7 +37,9 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
+          <MobileNavigation activeTab={activeTab} onTabChange={setActiveTab} />
           <Router />
+          <PWAInstallButton />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
