@@ -9,8 +9,7 @@ import {
   Target, 
   BarChart3, 
   Rocket,
-  Link2,
-  TrendingUp
+  Link2
 } from 'lucide-react';
 import { Logo, LogoIcon } from '@/components/Logo';
 
@@ -23,13 +22,11 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
   const [isOpen, setIsOpen] = useState(false);
 
   const navigationItems = [
-    { id: 'home', label: 'Home', icon: Home, description: 'Go to homepage' },
-    { id: 'workflow', label: 'Workflow', icon: Rocket, description: 'View success workflow' },
-    { id: 'platforms', label: 'Platforms', icon: Link2, description: 'Platform links hub' },
-    { id: 'calculator', label: 'Calculator', icon: Calculator, description: 'Commission calculator' },
-    { id: 'research', label: 'Research', icon: Search, description: 'Product research tool' },
-    { id: 'progress', label: 'Progress', icon: Target, description: 'Track your progress' },
-    { id: 'metrics', label: 'Metrics', icon: BarChart3, description: 'View success metrics' },
+    { id: 'home', label: 'Home', icon: Home },
+    { id: 'workflow', label: 'Workflow', icon: Rocket },
+    { id: 'platforms', label: 'Platforms', icon: Link2 },
+    { id: 'calculator', label: 'Calculator', icon: Calculator },
+    { id: 'research', label: 'Research', icon: Search },
   ];
 
   const handleTabChange = (tabId: string) => {
@@ -45,60 +42,45 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
     }
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Escape') {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <>
       {/* Mobile Header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200" role="navigation" aria-label="Mobile navigation">
-        <div className="flex items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] rounded-lg flex items-center justify-center" aria-hidden="true">
-              <Home className="w-4 h-4 text-white" />
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-white via-[#F8F9FA] to-white border-b border-gray-200 shadow-sm">
+        <div className="flex items-center justify-between px-4 py-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] rounded-xl flex items-center justify-center shadow-lg">
+              <Home className="w-5 h-5 text-white" />
             </div>
-            <span className="font-semibold text-gray-900">Daraz Guide</span>
+            <div>
+              <h1 className="font-bold text-gray-900 text-lg leading-tight">Daraz Affiliate Pro</h1>
+              <p className="text-xs text-gray-600 font-medium">Professional Guide</p>
+            </div>
           </div>
           
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setIsOpen(!isOpen)}
-            className="p-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded"
-            aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
-            aria-expanded={isOpen}
+            className="p-2.5 rounded-lg hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B35]"
           >
-            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {isOpen ? <X className="w-5 h-5 text-gray-700" /> : <Menu className="w-5 h-5 text-gray-700" />}
           </Button>
         </div>
-      </header>
+      </div>
 
       {/* Mobile Navigation Overlay */}
       {isOpen && (
-        <div 
-          className="lg:hidden fixed inset-0 z-40 bg-black/50" 
-          onClick={() => setIsOpen(false)}
-          aria-hidden="true"
-        />
+        <div className="lg:hidden fixed inset-0 z-40 bg-black/50" onClick={() => setIsOpen(false)} />
       )}
 
       {/* Mobile Navigation Menu */}
-      <div 
-        className={`lg:hidden fixed top-14 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="mobile-menu-title"
-        onKeyDown={handleKeyDown}
-      >
+      <div className={`lg:hidden fixed top-14 left-0 right-0 z-50 bg-white border-b border-gray-200 transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="max-h-[70vh] overflow-y-auto">
           {/* Quick Actions */}
           <div className="p-4 border-b border-gray-100">
-            <h3 id="mobile-menu-title" className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Quick Actions</h3>
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Quick Actions</h3>
             <div className="grid grid-cols-2 gap-2">
-              {navigationItems.slice(0, 6).map((item) => {
+              {navigationItems.slice(0, 4).map((item) => {
                 const Icon = item.icon;
                 return (
                   <Button
@@ -106,8 +88,7 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
                     variant={activeTab === item.id ? 'default' : 'outline'}
                     size="sm"
                     onClick={() => handleTabChange(item.id)}
-                    className="justify-start gap-2 h-10 text-xs focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded"
-                    aria-label={item.description}
+                    className="justify-start gap-2 h-10 text-xs"
                   >
                     <Icon className="w-3 h-3" />
                     {item.label}
@@ -196,9 +177,37 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
         </div>
       </div>
 
+      {/* Bottom Navigation Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200">
+        <div className="grid grid-cols-5 gap-1 px-1 py-2">
+          {navigationItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            
+            return (
+              <Button
+                key={item.id}
+                variant="ghost"
+                size="sm"
+                onClick={() => handleTabChange(item.id)}
+                className={`flex flex-col items-center gap-1 h-12 w-full rounded-lg transition-colors ${
+                  isActive 
+                    ? 'bg-[#FF6B35] text-white' 
+                    : 'text-gray-600 hover:bg-gray-100'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                <span className="text-xs leading-none">{item.label}</span>
+              </Button>
+            );
+          })}
+        </div>
+      </div>
+
       {/* Mobile Content Padding */}
       <div className="lg:hidden">
         <div className="h-14" /> {/* Header padding */}
+        <div className="h-16" /> {/* Bottom nav padding */}
       </div>
     </>
   );

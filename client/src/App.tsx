@@ -1,6 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -14,6 +16,8 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/privacy"} component={Privacy} />
+      <Route path={"/terms"} component={Terms} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -29,6 +33,21 @@ function Router() {
 function App() {
   const [activeTab, setActiveTab] = useState('home');
 
+  // Sync activeTab with mobile navigation
+  const handleTabChange = (tab: string) => {
+    setActiveTab(tab);
+    
+    // Scroll to tools section when tab is changed (except home)
+    if (tab !== 'home') {
+      setTimeout(() => {
+        const toolsSection = document.getElementById('tools');
+        if (toolsSection) {
+          toolsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <ErrorBoundary>
       <ThemeProvider
@@ -37,7 +56,7 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <MobileNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+          <MobileNavigation activeTab={activeTab} onTabChange={handleTabChange} />
           <Router />
           <PWAInstallButton />
         </TooltipProvider>
