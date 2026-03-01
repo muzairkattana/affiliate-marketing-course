@@ -7,7 +7,6 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import { PWAInstallButton } from "./components/PWAInstallButton";
 import { MobileNavigation } from "./components/MobileNavigation";
-import { OfflineIndicator } from "./components/OfflineIndicator";
 import { useState } from "react";
 
 
@@ -38,7 +37,6 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
-          <OfflineIndicator />
           <MobileNavigation activeTab={activeTab} onTabChange={setActiveTab} />
           <Router />
           <PWAInstallButton />

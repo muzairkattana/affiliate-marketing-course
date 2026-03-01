@@ -9,7 +9,8 @@ import {
   Target, 
   BarChart3, 
   Rocket,
-  Link2
+  Link2,
+  TrendingUp
 } from 'lucide-react';
 import { Logo, LogoIcon } from '@/components/Logo';
 
@@ -27,6 +28,8 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
     { id: 'platforms', label: 'Platforms', icon: Link2, description: 'Platform links hub' },
     { id: 'calculator', label: 'Calculator', icon: Calculator, description: 'Commission calculator' },
     { id: 'research', label: 'Research', icon: Search, description: 'Product research tool' },
+    { id: 'progress', label: 'Progress', icon: Target, description: 'Track your progress' },
+    { id: 'metrics', label: 'Metrics', icon: BarChart3, description: 'View success metrics' },
   ];
 
   const handleTabChange = (tabId: string) => {
@@ -95,7 +98,7 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
           <div className="p-4 border-b border-gray-100">
             <h3 id="mobile-menu-title" className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">Quick Actions</h3>
             <div className="grid grid-cols-2 gap-2">
-              {navigationItems.slice(0, 4).map((item) => {
+              {navigationItems.slice(0, 6).map((item) => {
                 const Icon = item.icon;
                 return (
                   <Button
