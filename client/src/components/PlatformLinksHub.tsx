@@ -257,7 +257,7 @@ export default function PlatformLinksHub() {
         <h3 className="text-2xl font-bold mb-4">⚡ Quick Start Guide</h3>
         <p className="text-white/90 mb-6">Get started immediately with these time-based action plans</p>
         
-        <div className="grid md:grid-cols-3 gap-4">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-4">
           {quickStartLinks.map((plan, idx) => (
             <Card key={idx} className="p-4 bg-white/10 backdrop-blur border border-white/20">
               <h4 className="font-bold text-lg mb-2">{plan.title}</h4>
@@ -298,7 +298,7 @@ export default function PlatformLinksHub() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-4">
             {category.platforms.map((platform, idx) => (
               <Card key={idx} className="p-4 border border-gray-200 hover:shadow-md transition-shadow">
                 <div className="flex items-start justify-between mb-3">
@@ -379,53 +379,55 @@ export default function PlatformLinksHub() {
       {/* Platform Comparison */}
       <Card className="p-6 border-l-4 border-l-[#27AE60]">
         <h3 className="text-xl font-bold text-[#2C3E50] mb-4">🏆 Platform Comparison for Beginners</h3>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b">
-                <th className="text-left p-2">Platform</th>
-                <th className="text-center p-2">Setup Time</th>
-                <th className="text-center p-2">Content Type</th>
-                <th className="text-center p-2">Earning Potential</th>
-                <th className="text-center p-2">Competition</th>
-                <th className="text-center p-2">Recommendation</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b hover:bg-gray-50">
-                <td className="p-2 font-semibold">YouTube</td>
-                <td className="text-center p-2">30 min</td>
-                <td className="text-center p-2">Video Reviews</td>
-                <td className="text-center p-2">⭐⭐⭐⭐⭐</td>
-                <td className="text-center p-2">Medium</td>
-                <td className="text-center p-2"><Badge className="bg-green-100 text-green-800">Start Here</Badge></td>
-              </tr>
-              <tr className="border-b hover:bg-gray-50">
-                <td className="p-2 font-semibold">Facebook</td>
-                <td className="text-center p-2">15 min</td>
-                <td className="text-center p-2">Mixed Content</td>
-                <td className="text-center p-2">⭐⭐⭐⭐</td>
-                <td className="text-center p-2">High</td>
-                <td className="text-center p-2"><Badge className="bg-blue-100 text-blue-800">Secondary</Badge></td>
-              </tr>
-              <tr className="border-b hover:bg-gray-50">
-                <td className="p-2 font-semibold">TikTok</td>
-                <td className="text-center p-2">10 min</td>
-                <td className="text-center p-2">Short Videos</td>
-                <td className="text-center p-2">⭐⭐⭐⭐</td>
-                <td className="text-center p-2">Low</td>
-                <td className="text-center p-2"><Badge className="bg-purple-100 text-purple-800">Growth</Badge></td>
-              </tr>
-              <tr className="border-b hover:bg-gray-50">
-                <td className="p-2 font-semibold">Instagram</td>
-                <td className="text-center p-2">20 min</td>
-                <td className="text-center p-2">Visual</td>
-                <td className="text-center p-2">⭐⭐⭐</td>
-                <td className="text-center p-2">High</td>
-                <td className="text-center p-2"><Badge className="bg-gray-100 text-gray-800">Later</Badge></td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="overflow-x-auto -mx-4 px-4">
+          <div className="min-w-[640px]">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b">
+                  <th className="text-left p-2">Platform</th>
+                  <th className="text-center p-2">Setup Time</th>
+                  <th className="text-center p-2">Content Type</th>
+                  <th className="text-center p-2">Earning Potential</th>
+                  <th className="text-center p-2">Competition</th>
+                  <th className="text-center p-2">Recommendation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b hover:bg-gray-50">
+                  <td className="p-2 font-semibold">YouTube</td>
+                  <td className="text-center p-2">30 min</td>
+                  <td className="text-center p-2">Video Reviews</td>
+                  <td className="text-center p-2">⭐⭐⭐⭐⭐</td>
+                  <td className="text-center p-2">Medium</td>
+                  <td className="text-center p-2"><Badge className="bg-green-100 text-green-800">Start Here</Badge></td>
+                </tr>
+                <tr className="border-b hover:bg-gray-50">
+                  <td className="p-2 font-semibold">Facebook</td>
+                  <td className="text-center p-2">15 min</td>
+                  <td className="text-center p-2">Mixed Content</td>
+                  <td className="text-center p-2">⭐⭐⭐⭐</td>
+                  <td className="text-center p-2">High</td>
+                  <td className="text-center p-2"><Badge className="bg-blue-100 text-blue-800">Secondary</Badge></td>
+                </tr>
+                <tr className="border-b hover:bg-gray-50">
+                  <td className="p-2 font-semibold">TikTok</td>
+                  <td className="text-center p-2">10 min</td>
+                  <td className="text-center p-2">Short Videos</td>
+                  <td className="text-center p-2">⭐⭐⭐⭐</td>
+                  <td className="text-center p-2">Low</td>
+                  <td className="text-center p-2"><Badge className="bg-purple-100 text-purple-800">Growth</Badge></td>
+                </tr>
+                <tr className="border-b hover:bg-gray-50">
+                  <td className="p-2 font-semibold">Instagram</td>
+                  <td className="text-center p-2">20 min</td>
+                  <td className="text-center p-2">Visual</td>
+                  <td className="text-center p-2">⭐⭐⭐</td>
+                  <td className="text-center p-2">High</td>
+                  <td className="text-center p-2"><Badge className="bg-gray-100 text-gray-800">Later</Badge></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </Card>
     </div>

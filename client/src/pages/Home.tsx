@@ -177,7 +177,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-12 sm:py-16 md:py-20 px-4" id="hero" role="banner">
+      <section className="relative overflow-hidden pt-16 sm:pt-20 md:pt-24 py-8 sm:py-12 md:py-16 px-4" id="hero" role="banner">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: 'url(/header_image.webp)' }}
@@ -198,21 +198,21 @@ export default function Home() {
               <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8">
                 Complete A-to-Z guide for beginners to advanced marketers. Learn to build sustainable income from home.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
                 <Button 
                   size="lg" 
-                  className="bg-[#27AE60] hover:bg-[#229954] text-white mobile-button w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-[#27AE60]/50"
+                  className="bg-[#27AE60] hover:bg-[#229954] text-white flex-1 sm:flex-initial min-w-0 focus:outline-none focus:ring-4 focus:ring-[#27AE60]/50"
                   aria-label="Start learning Daraz affiliate marketing"
                 >
-                  Start Learning
+                  <span className="truncate">Start Learning</span>
                 </Button>
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-white text-white hover:bg-white/10 mobile-button w-full sm:w-auto focus:outline-none focus:ring-4 focus:ring-white/50"
+                  className="border-white text-white hover:bg-white/10 flex-1 sm:flex-initial min-w-0 focus:outline-none focus:ring-4 focus:ring-white/50"
                   aria-label="View income roadmap"
                 >
-                  View Roadmap
+                  <span className="truncate">View Roadmap</span>
                 </Button>
               </div>
             </div>
@@ -368,7 +368,7 @@ export default function Home() {
           </p>
 
           <Tabs defaultValue="workflow" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 sm:grid-cols-6 mb-6 sm:mb-8 gap-1 sm:gap-2" role="tablist">
+            <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 mb-6 sm:mb-8 gap-1 sm:gap-2" role="tablist">
               <TabsTrigger 
                 value="workflow" 
                 className="data-[state=active]:bg-[#FF6B35] data-[state=active]:text-white text-xs sm:text-sm p-2 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded"
@@ -376,8 +376,8 @@ export default function Home() {
                 aria-selected="false"
               >
                 <Rocket className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
-                <span className="hidden sm:inline">Success Workflow</span>
-                <span className="sm:hidden">Workflow</span>
+                <span className="hidden sm:inline truncate max-w-[80px]">Success Workflow</span>
+                <span className="sm:hidden truncate">Workflow</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="platforms" 
@@ -386,8 +386,8 @@ export default function Home() {
                 aria-selected="false"
               >
                 <Link2 className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
-                <span className="hidden sm:inline">Platform Links</span>
-                <span className="sm:hidden">Platforms</span>
+                <span className="hidden sm:inline truncate max-w-[80px]">Platform Links</span>
+                <span className="sm:hidden truncate">Platforms</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="calculator" 
@@ -396,8 +396,8 @@ export default function Home() {
                 aria-selected="false"
               >
                 <Calculator className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
-                <span className="hidden sm:inline">Commission Calc</span>
-                <span className="sm:hidden">Calc</span>
+                <span className="hidden sm:inline truncate max-w-[80px]">Commission Calc</span>
+                <span className="sm:hidden truncate">Calc</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="research" 
@@ -406,8 +406,8 @@ export default function Home() {
                 aria-selected="false"
               >
                 <Search className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
-                <span className="hidden sm:inline">Product Research</span>
-                <span className="sm:hidden">Research</span>
+                <span className="hidden sm:inline truncate max-w-[80px]">Product Research</span>
+                <span className="sm:hidden truncate">Research</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="progress" 
@@ -416,8 +416,8 @@ export default function Home() {
                 aria-selected="false"
               >
                 <Target className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
-                <span className="hidden sm:inline">Progress Tracker</span>
-                <span className="sm:hidden">Progress</span>
+                <span className="hidden sm:inline truncate max-w-[80px]">Progress Tracker</span>
+                <span className="sm:hidden truncate">Progress</span>
               </TabsTrigger>
               <TabsTrigger 
                 value="metrics" 
@@ -426,8 +426,8 @@ export default function Home() {
                 aria-selected="false"
               >
                 <BarChart3 className="w-3 h-3 sm:w-4 sm:h-4 mr-1" aria-hidden="true" />
-                <span className="hidden sm:inline">Success Metrics</span>
-                <span className="sm:hidden">Metrics</span>
+                <span className="hidden sm:inline truncate max-w-[80px]">Success Metrics</span>
+                <span className="sm:hidden truncate">Metrics</span>
               </TabsTrigger>
             </TabsList>
             
@@ -545,20 +545,29 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 px-4 bg-gradient-to-r from-[#2C3E50] to-[#FF6B35]">
+      <section className="py-12 sm:py-16 px-4 bg-gradient-to-r from-[#2C3E50] to-[#FF6B35]" id="cta" role="region" aria-labelledby="cta-heading">
         <div className="container mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
+          <h2 id="cta-heading" className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
             Ready to Start Your Daraz Affiliate Journey?
           </h2>
           <p className="text-lg sm:text-xl text-white/90 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             This comprehensive guide covers everything from account setup to scaling to PKR 1,000,000+ monthly income. Start with the 30-day action plan and follow the roadmap.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-            <Button size="lg" className="bg-[#27AE60] hover:bg-[#229954] text-white mobile-button w-full sm:w-auto">
-              Download Full Guide
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center px-4 flex-wrap">
+            <Button 
+              size="lg" 
+              className="bg-[#27AE60] hover:bg-[#229954] text-white flex-1 sm:flex-initial min-w-0 focus:outline-none focus:ring-4 focus:ring-[#27AE60]/50"
+              aria-label="Download full Daraz affiliate guide"
+            >
+              <span className="truncate">Download Full Guide</span>
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 mobile-button w-full sm:w-auto">
-              View Case Study
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-white text-white hover:bg-white/10 flex-1 sm:flex-initial min-w-0 focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="View case study"
+            >
+              <span className="truncate">View Case Study</span>
             </Button>
           </div>
         </div>
@@ -567,41 +576,41 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-[#1A1A1A] text-white py-8 sm:py-12 px-4 relative z-20" role="contentinfo">
         <div className="container mx-auto">
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
             <div>
               <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" id="guide-sections">Guide Sections</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400" aria-labelledby="guide-sections">
-                <li><a href="#mindset" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Mindset & Foundation</a></li>
-                <li><a href="#technical" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Technical Setup</a></li>
-                <li><a href="#niche" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Niche Selection</a></li>
-                <li><a href="#traffic" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Traffic Methods</a></li>
+                <li><a href="#hero" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Home</a></li>
+                <li><a href="#modules" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Training Modules</a></li>
+                <li><a href="#tools" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Interactive Tools</a></li>
+                <li><a href="#checklist" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Quick Start</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" id="resources">Resources</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400" aria-labelledby="resources">
-                <li><a href="https://www.daraz.pk/affiliate" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Daraz Affiliate Program</a></li>
-                <li><a href="#fbr" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">FBR Guidelines</a></li>
-                <li><a href="#seo" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">SEO Tools</a></li>
-                <li><a href="#analytics" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Analytics</a></li>
+                <li><a href="https://www.daraz.pk/affiliate" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Daraz Affiliate Program</a></li>
+                <li><a href="#statistics" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Key Statistics</a></li>
+                <li><a href="#mistakes" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Common Mistakes</a></li>
+                <li><a href="#cta" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Get Started</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" id="tools">Tools</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400" aria-labelledby="tools">
-                <li><a href="#calculator" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Commission Calculator</a></li>
-                <li><a href="#research" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Product Research</a></li>
-                <li><a href="#progress" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Progress Tracker</a></li>
-                <li><a href="#metrics" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Success Metrics</a></li>
+                <li><a href="#tools" onClick={(e) => { e.preventDefault(); const calculatorTab = document.querySelector('[value="calculator"]') as HTMLElement; if(calculatorTab) calculatorTab.click(); }} className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Commission Calculator</a></li>
+                <li><a href="#tools" onClick={(e) => { e.preventDefault(); const researchTab = document.querySelector('[value="research"]') as HTMLElement; if(researchTab) researchTab.click(); }} className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Product Research</a></li>
+                <li><a href="#tools" onClick={(e) => { e.preventDefault(); const progressTab = document.querySelector('[value="progress"]') as HTMLElement; if(progressTab) progressTab.click(); }} className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Progress Tracker</a></li>
+                <li><a href="#tools" onClick={(e) => { e.preventDefault(); const metricsTab = document.querySelector('[value="metrics"]') as HTMLElement; if(metricsTab) metricsTab.click(); }} className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Success Metrics</a></li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base" id="legal">Legal</h4>
               <ul className="space-y-1 sm:space-y-2 text-xs sm:text-sm text-gray-400" aria-labelledby="legal">
-                <li><a href="#affiliate-rules" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Affiliate Rules</a></li>
-                <li><a href="#tax" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Tax Guidelines</a></li>
-                <li><a href="#disclosure" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Disclosure Policy</a></li>
-                <li><a href="#terms" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded">Terms of Service</a></li>
+                <li><a href="#privacy" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Privacy Policy</a></li>
+                <li><a href="#terms" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Terms of Service</a></li>
+                <li><a href="#disclosure" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Disclosure Policy</a></li>
+                <li><a href="#contact" className="hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded block py-1">Contact Us</a></li>
               </ul>
             </div>
           </div>
@@ -612,12 +621,12 @@ export default function Home() {
                 © 2026 Daraz Affiliate Marketing Guide Pakistan. All rights reserved. | Created for Pakistani entrepreneurs
               </p>
               <div className="flex items-center gap-4">
-                <a href="https://github.com/muzairkattana/affiliate-marketing-course" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="View on GitHub">
+                <a href="https://github.com/muzairkattana/affiliate-marketing-course" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200 p-2 rounded hover:bg-gray-800" aria-label="View on GitHub">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-.908 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                   </svg>
                 </a>
-                <a href="mailto:contact@darazguide.com" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Email contact">
+                <a href="mailto:contact@darazguide.com" className="text-gray-400 hover:text-white transition-colors duration-200 p-2 rounded hover:bg-gray-800" aria-label="Email contact">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>

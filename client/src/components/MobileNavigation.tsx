@@ -51,7 +51,7 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
   return (
     <>
       {/* Mobile Header */}
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200" role="navigation" aria-label="Mobile navigation">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200" role="navigation" aria-label="Mobile navigation">
         <div className="flex items-center justify-between px-4 py-3">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] rounded-lg flex items-center justify-center" aria-hidden="true">
@@ -84,7 +84,7 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
 
       {/* Mobile Navigation Menu */}
       <div 
-        className={`lg:hidden fixed top-14 left-0 right-0 z-50 bg-white border-b border-gray-200 transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
+        className={`lg:hidden fixed top-14 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-transform duration-300 ${isOpen ? 'translate-y-0' : '-translate-y-full'}`}
         role="dialog"
         aria-modal="true"
         aria-labelledby="mobile-menu-title"
@@ -194,7 +194,7 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
       </div>
 
       {/* Bottom Navigation Bar */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-gray-200" role="navigation" aria-label="Bottom navigation">
+      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200" role="navigation" aria-label="Bottom navigation">
         <div className="grid grid-cols-5 gap-1 px-1 py-2">
           {navigationItems.map((item) => {
             const Icon = item.icon;
