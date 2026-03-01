@@ -193,39 +193,9 @@ export const MobileNavigation = ({ activeTab = 'home', onTabChange }: MobileNavi
         </div>
       </div>
 
-      {/* Bottom Navigation Bar */}
-      <nav className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-gray-200" role="navigation" aria-label="Bottom navigation">
-        <div className="grid grid-cols-5 gap-1 px-1 py-2">
-          {navigationItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeTab === item.id;
-            
-            return (
-              <Button
-                key={item.id}
-                variant="ghost"
-                size="sm"
-                onClick={() => handleTabChange(item.id)}
-                className={`flex flex-col items-center gap-1 h-12 w-full rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded ${
-                  isActive 
-                    ? 'bg-[#FF6B35] text-white' 
-                    : 'text-gray-600 hover:bg-gray-100'
-                }`}
-                aria-label={item.description}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                <Icon className="w-4 h-4" />
-                <span className="text-xs leading-none">{item.label}</span>
-              </Button>
-            );
-          })}
-        </div>
-      </nav>
-
       {/* Mobile Content Padding */}
       <div className="lg:hidden">
         <div className="h-14" /> {/* Header padding */}
-        <div className="h-20" /> {/* Bottom nav padding - increased for footer visibility */}
       </div>
     </>
   );
