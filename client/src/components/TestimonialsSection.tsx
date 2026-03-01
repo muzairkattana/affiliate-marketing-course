@@ -99,13 +99,13 @@ const stats = {
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-white to-gray-50" id="testimonials">
-      <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-white to-gray-50" id="testimonials">
+      <div className="container mx-auto max-w-4xl sm:max-w-5xl lg:max-w-6xl">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Success Stories from Pakistani Affiliates
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Real people, real results. Join thousands of Pakistanis who are already earning through Daraz affiliate marketing.
           </p>
         </div>
@@ -131,31 +131,31 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {testimonials.map((testimonial) => (
-            <Card key={testimonial.id} className="p-4 sm:p-6 hover:shadow-lg transition-shadow bg-white">
-              <div className="flex items-start gap-3 sm:gap-4 mb-4">
+            <Card key={testimonial.id} className="p-3 sm:p-4 lg:p-6 hover:shadow-lg transition-shadow bg-white">
+              <div className="flex items-start gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] rounded-full flex items-center justify-center text-white font-bold text-sm sm:text-lg">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] rounded-full flex items-center justify-center text-white font-bold text-xs sm:text-sm lg:text-base">
                     {testimonial.avatar}
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
+                  <div className="flex items-center gap-1 sm:gap-2 mb-1">
                     <h3 className="font-semibold text-gray-900 text-sm sm:text-base">{testimonial.name}</h3>
-                    <Badge className="text-xs bg-[#FF6B35]/10 text-[#FF6B35] px-2 py-1">
+                    <Badge className="text-xs bg-[#FF6B35]/10 text-[#FF6B35] px-1.5 sm:px-2 py-0.5">
                       {testimonial.role}
                     </Badge>
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
+                  <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500">
                     <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                       </svg>
                       {testimonial.location}
                     </span>
                     <span className="flex items-center gap-1">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6 0v-4l-3 3m-6-4h6" />
                       </svg>
                       {testimonial.time}
@@ -164,28 +164,35 @@ export default function TestimonialsSection() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-1 mb-4">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4" style={{ fill: '#FF6B35' }} />
-                ))}
-                <span className="text-sm text-gray-600 ml-1">({testimonial.rating}.0)</span>
+              <div className="flex items-center gap-1 sm:gap-2 mb-3 sm:mb-4">
+                <div className="flex items-center gap-0.5">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5" style={{ fill: '#FF6B35' }} />
+                  ))}
+                  {[...Array(5 - testimonial.rating)].map((_, i) => (
+                    <Star key={`empty-${i}`} className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-gray-300" />
+                  ))}
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-gray-700 bg-gray-100 px-1.5 sm:px-2 py-0.5 rounded">
+                  {testimonial.rating}.0/5.0
+                </span>
               </div>
 
-              <blockquote className="text-gray-700 mb-4 italic text-sm sm:text-base">
+              <blockquote className="text-gray-700 mb-3 sm:mb-4 italic text-xs sm:text-sm lg:text-base">
                 "{testimonial.content}"
               </blockquote>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 {testimonial.platforms.map((platform) => (
-                  <Badge key={platform} variant="outline" className="text-xs">
+                  <Badge key={platform} variant="outline" className="text-xs px-2 py-1">
                     {platform}
                   </Badge>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+              <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-gray-100">
                 <div>
-                  <div className="text-lg sm:text-xl font-bold text-[#27AE60]">{testimonial.earnings}</div>
+                  <div className="text-base sm:text-lg lg:text-xl font-bold text-[#27AE60]">{testimonial.earnings}</div>
                   <div className="text-xs sm:text-sm text-gray-500">Monthly Earnings</div>
                 </div>
                 <div className="text-right">
@@ -200,19 +207,19 @@ export default function TestimonialsSection() {
         </div>
 
         {/* CTA Section */}
-        <Card className="p-6 sm:p-8 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] text-white text-center">
+        <Card className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] text-white text-center">
           <div className="max-w-2xl mx-auto">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4">Ready to Start Your Success Story?</h3>
-            <p className="text-white/90 mb-6 text-sm sm:text-base">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4">Ready to Start Your Success Story?</h3>
+            <p className="text-white/90 mb-4 sm:mb-6 text-sm sm:text-base">
               Join thousands of Pakistanis who are already earning through Daraz affiliate marketing. 
               Your success story could be featured here next!
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 lg:gap-4 justify-center">
+              <Button className="bg-white text-[#FF6B35] hover:bg-gray-100 font-semibold px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base">
                 <Users className="w-4 h-4 mr-2" />
                 Join Our Community
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-6 sm:px-8 py-3 text-sm sm:text-base">
+              <Button variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base">
                 <Play className="w-4 h-4 mr-2" />
                 Watch Success Stories
               </Button>

@@ -121,31 +121,31 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-gray-50 to-gray-100" id="faq">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+    <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-gray-100" id="faq">
+      <div className="container mx-auto max-w-4xl sm:max-w-5xl lg:max-w-6xl">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto px-4">
+          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">
             Everything you need to know about starting and succeeding with Daraz affiliate marketing in Pakistan
           </p>
         </div>
 
-        <div className="space-y-4 sm:space-y-6 max-w-4xl mx-auto px-4">
+        <div className="space-y-3 sm:space-y-4 lg:space-y-6 max-w-4xl mx-auto">
           {faqCategories.map((category) => (
             <Card key={category.id} className="overflow-hidden">
               <button
                 onClick={() => toggleCategory(category.id)}
-                className="w-full p-4 sm:p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded-lg touch-manipulation-adjustment"
+                className="w-full p-3 sm:p-4 lg:p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded-lg touch-manipulation-adjustment"
               >
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 ${category.color} rounded-lg flex items-center justify-center text-white`}>
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 ${category.color} rounded-lg flex items-center justify-center text-white flex-shrink-0`}>
                     {category.icon}
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">{category.title}</h3>
-                    <p className="text-sm text-gray-500">{category.questions.length} questions</p>
+                  <div className="min-w-0">
+                    <h3 className="text-base sm:text-lg font-semibold text-gray-900">{category.title}</h3>
+                    <p className="text-xs sm:text-sm text-gray-500">{category.questions.length} questions</p>
                   </div>
                 </div>
                 {expandedCategory === category.id ? (
@@ -156,7 +156,7 @@ export default function FAQSection() {
               </button>
 
               {expandedCategory === category.id && (
-                <div className="px-6 pb-6 space-y-4">
+                <div className="px-3 sm:px-4 lg:px-6 pb-3 sm:pb-4 lg:pb-6 space-y-2 sm:space-y-3">
                   {category.questions.map((faq, index) => {
                     const questionId = `${category.id}-${index}`;
                     const isExpanded = expandedQuestions.has(questionId);
@@ -165,11 +165,11 @@ export default function FAQSection() {
                       <div key={questionId} className="border border-gray-200 rounded-lg overflow-hidden">
                         <button
                           onClick={() => toggleQuestion(questionId)}
-                          className="w-full p-4 sm:p-6 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded-lg touch-manipulation-adjustment"
+                          className="w-full p-3 sm:p-4 lg:p-6 text-left hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-[#FF6B35] rounded-lg touch-manipulation-adjustment"
                         >
-                          <div className="flex items-start justify-between gap-3">
+                          <div className="flex items-start justify-between gap-2 sm:gap-3">
                             <div className="flex-1 min-w-0">
-                              <h4 className="font-medium text-gray-900 mb-1 line-clamp-2">{faq.q}</h4>
+                              <h4 className="font-medium text-gray-900 mb-1 text-sm sm:text-base line-clamp-2">{faq.q}</h4>
                             </div>
                             {isExpanded ? (
                               <ChevronUp className="w-4 h-4 text-gray-500 flex-shrink-0 mt-1" />
@@ -179,8 +179,8 @@ export default function FAQSection() {
                           </div>
                         </button>
                         {isExpanded && (
-                          <div className="px-4 pb-4 text-gray-600 leading-relaxed border-t border-gray-100">
-                            <p className="text-sm">{faq.a}</p>
+                          <div className="px-3 sm:px-4 lg:px-6 pb-3 sm:pb-4 lg:pb-6 text-gray-600 leading-relaxed border-t border-gray-100">
+                            <p className="text-xs sm:text-sm">{faq.a}</p>
                           </div>
                         )}
                       </div>
@@ -192,21 +192,21 @@ export default function FAQSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <Card className="p-6 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] text-white max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <Target className="w-6 h-6" />
-              <h3 className="text-xl font-bold">Still have questions?</h3>
+        <div className="mt-8 sm:mt-12 lg:mt-16 text-center">
+          <Card className="p-4 sm:p-6 lg:p-8 bg-gradient-to-r from-[#FF6B35] to-[#2C3E50] text-white max-w-2xl mx-auto">
+            <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+              <Target className="w-5 h-5 sm:w-6 sm:h-6" />
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold">Still have questions?</h3>
             </div>
-            <p className="mb-6 text-white/90">
+            <p className="mb-4 sm:mb-6 text-white/90 text-sm sm:text-base">
               Can't find the answer you're looking for? We're here to help you succeed in your affiliate marketing journey.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button className="bg-white text-[#FF6B35] hover:bg-gray-100 font-medium">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+              <Button className="bg-white text-[#FF6B35] hover:bg-gray-100 font-medium text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
                 <Users className="w-4 h-4 mr-2" />
                 Join Our Community
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10 font-medium">
+              <Button variant="outline" className="border-white text-white hover:bg-white/10 font-medium text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3">
                 <Clock className="w-4 h-4 mr-2" />
                 Schedule a Call
               </Button>

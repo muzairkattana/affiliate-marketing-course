@@ -37,6 +37,15 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // 2 seconds loading
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -181,6 +190,15 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Search Component */}
+      <SearchComponent />
+      
+      {/* Loading State */}
+      {isLoading && (
+        <div className="fixed inset-0 z-50 bg-white flex items-center justify-center px-4">
+          <LoadingSpinner size="lg" text="Loading amazing content..." />
+        </div>
+      )}
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-16 sm:pt-20 md:pt-24 py-8 sm:py-12 md:py-16 px-4" id="hero" role="banner">
         <div 

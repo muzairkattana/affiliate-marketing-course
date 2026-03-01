@@ -196,7 +196,7 @@ export default function SearchComponent() {
       {/* Search Modal */}
       {isOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" onClick={() => setIsOpen(false)}>
-          <div className="fixed inset-4 sm:inset-8 md:inset-12 md:max-w-2xl bg-white rounded-xl shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <div className="fixed inset-2 sm:inset-4 md:inset-8 lg:inset-12 bg-white rounded-xl shadow-2xl max-w-4xl mx-auto" onClick={(e) => e.stopPropagation()}>
             {/* Header */}
             <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-200">
               <div className="flex items-center gap-3">
@@ -217,7 +217,7 @@ export default function SearchComponent() {
             </div>
 
             {/* Search Input */}
-            <div className="p-4 sm:p-6 border-b border-gray-200">
+            <div className="p-3 sm:p-4 lg:p-6 border-b border-gray-200">
               <div className="relative">
                 <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4 sm:w-5 sm:h-5" />
                 <Input
@@ -244,7 +244,7 @@ export default function SearchComponent() {
 
               {/* Popular Searches */}
               {!query && (
-                <div className="flex flex-wrap gap-2 pt-3 sm:pt-4">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-3 sm:pt-4">
                   {popularSearches.map((term) => (
                     <Button
                       key={term}
@@ -254,7 +254,7 @@ export default function SearchComponent() {
                         setQuery(term);
                         handleSearch(term);
                       }}
-                      className="text-xs sm:text-sm px-3 py-1.5 touch-manipulation-adjustment"
+                      className="text-xs sm:text-sm px-2 sm:px-3 py-1.5 touch-manipulation-adjustment"
                     >
                       {term}
                     </Button>
@@ -264,46 +264,46 @@ export default function SearchComponent() {
             </div>
 
             {/* Search Results */}
-            <div className="max-h-64 sm:max-h-96 overflow-y-auto p-4 sm:p-6">
+            <div className="max-h-48 sm:max-h-64 lg:max-h-96 overflow-y-auto p-3 sm:p-4 lg:p-6">
               {isSearching ? (
-                <div className="flex flex-col items-center justify-center py-8">
-                  <div className="w-6 h-6 sm:w-8 sm:h-8 border-4 border-[#FF6B35] border-t-transparent border-b-transparent animate-spin rounded-full"></div>
-                  <p className="text-gray-500 mt-4 text-sm sm:text-base">Searching...</p>
+                <div className="flex flex-col items-center justify-center py-6 sm:py-8">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 border-4 border-[#FF6B35] border-t-transparent border-b-transparent animate-spin rounded-full"></div>
+                  <p className="text-gray-500 mt-3 sm:mt-4 text-xs sm:text-sm">Searching...</p>
                 </div>
               ) : results.length > 0 ? (
-                <div className="space-y-3 sm:space-y-4">
+                <div className="space-y-2 sm:space-y-3 lg:space-y-4">
                   {results.map((result) => (
                     <Card
                       key={result.id}
                       className="p-3 sm:p-4 hover:bg-gray-50 cursor-pointer transition-colors touch-manipulation-adjustment"
                       onClick={() => handleResultClick(result)}
                     >
-                      <div className="flex items-start gap-3">
+                      <div className="flex items-start gap-2 sm:gap-3">
                         <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                          {result.type === 'content' && <BookOpen className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />}
-                          {result.type === 'tool' && <Target className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />}
-                          {result.type === 'section' && <Filter className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />}
+                          {result.type === 'content' && <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />}
+                          {result.type === 'tool' && <Target className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />}
+                          {result.type === 'section' && <Filter className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" />}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h3 className="font-semibold text-gray-900 text-sm sm:text-base line-clamp-1">{result.title}</h3>
+                          <div className="flex items-center gap-1.5 sm:gap-2 mb-1">
+                            <h3 className="font-semibold text-gray-900 text-xs sm:text-sm line-clamp-1">{result.title}</h3>
                             <Badge variant="outline" className="text-xs">
                               {result.category}
                             </Badge>
                           </div>
-                          <p className="text-xs sm:text-sm text-gray-600 line-clamp-2">{result.description}</p>
+                          <p className="text-xs text-gray-600 line-clamp-2">{result.description}</p>
                         </div>
                       </div>
                     </Card>
                   ))}
                 </div>
               ) : query && (
-                <div className="text-center py-8">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4">
-                    <Search className="w-6 h-6 sm:w-8 sm:h-8 text-gray-400" />
+                <div className="text-center py-6 sm:py-8">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-gray-100 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                    <Search className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-gray-400" />
                   </div>
-                  <p className="text-gray-500 text-sm sm:text-base">No results found for "{query}"</p>
-                  <p className="text-xs sm:text-sm text-gray-400 mt-2">
+                  <p className="text-gray-500 text-xs sm:text-sm">No results found for "{query}"</p>
+                  <p className="text-xs text-gray-400 mt-1 sm:mt-2">
                     Try searching for: {popularSearches.join(", ")}
                   </p>
                 </div>
