@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { CheckCircle2, TrendingUp, Users, BookOpen, AlertCircle, DollarSign, Target, Zap, Rocket, Link2, BarChart3, Calculator, Search, ArrowUp } from "lucide-react";
+import { CheckCircle2, TrendingUp, Users, BookOpen, AlertCircle, DollarSign, Target, Zap, Rocket, Link2, BarChart3, Calculator, Search, ArrowUp, ChevronUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import CommissionCalculator from "@/components/CommissionCalculator";
 import ProductResearchTool from "@/components/ProductResearchTool";
@@ -676,11 +676,11 @@ export default function Home() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-24 right-6 z-50 bg-[#FF6B35] hover:bg-[#E55A2B] text-white p-3 rounded-full shadow-lg transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/50"
+          className="fixed bottom-8 right-4 sm:bottom-8 sm:right-6 z-50 bg-white/90 hover:bg-white text-[#FF6B35] p-3 sm:p-4 rounded-full shadow-lg backdrop-blur-sm border border-[#FF6B35]/20 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#FF6B35]/20 hover:scale-110 hover:shadow-xl"
           aria-label="Scroll to top"
           title="Scroll to top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       )}
     </div>
