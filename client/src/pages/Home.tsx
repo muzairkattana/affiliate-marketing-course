@@ -203,7 +203,7 @@ export default function Home() {
       <section className="relative overflow-hidden pt-16 sm:pt-20 md:pt-24 py-8 sm:py-12 md:py-16 px-4" id="hero" role="banner">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: 'url(/header_image.webp)' }}
+          style={{ backgroundImage: 'url(/header_image.webp?v=20260301)' }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" aria-hidden="true" />
