@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Daraz Affiliate Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .offline-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B35, #2C3E50, #27AE60);
+        }
+        
+        .offline-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, #FF6B35, #2C3E50);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2C3E50;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+        }
+        
+        .feature-card.available {
+            border-left: 4px solid #27AE60;
+        }
+        
+        .feature-card.unavailable {
+            border-left: 4px solid #E74C3C;
+        }
+        
+        .feature-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .available .feature-title {
+            color: #27AE60;
+        }
+        
+        .unavailable .feature-title {
+            color: #E74C3C;
+        }
+        
+        .feature-list {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .feature-list li {
+            margin-bottom: 4px;
+            list-style: none;
+            position: relative;
+            padding-left: 16px;
+        }
+        
+        .feature-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FF6B35, #E55A2B);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #666;
+            border: 1px solid #e9ecef;
+        }
+        
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .status-offline {
+            background: #fee;
+            color: #E74C3C;
+        }
+        
+        @media (max-width: 480px) {
+            .offline-container {
+                padding: 30px 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="status-indicator status-offline">
+            <span>●</span> Offline Mode
+        </div>
+        
+        <div class="offline-icon">
+            📱
+        </div>
+        
+        <h1>No Internet Connection</h1>
+        <p class="subtitle">
+            You're currently offline. Some features may not be available until you reconnect.
+        </p>
+        
+        <div class="features-grid">
+            <div class="feature-card available">
+                <div class="feature-title">
+                    <span>✓</span> Available Offline
+                </div>
+                <ul class="feature-list">
+                    <li>View cached content</li>
+                    <li>Use interactive tools</li>
+                    <li>Browse training modules</li>
+                    <li>Read saved guides</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card unavailable">
+                <div class="feature-title">
+                    <span>✗</span> Requires Internet
+                </div>
+                <ul class="feature-list">
+                    <li>Real-time updates</li>
+                    <li>External images</li>
+                    <li>Live data sync</li>
+                    <li>Network requests</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button class="btn btn-secondary" onclick="window.history.back()">
+                <span>←</span> Go Back
+            </button>
+            <button class="btn btn-primary" onclick="window.location.reload()">
+                <span>↻</span> Try Again
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Monitor connection status
+        function updateConnectionStatus() {
+            const statusIndicator = document.querySelector('.status-indicator');
+            if (navigator.onLine) {
+                statusIndicator.className = 'status-indicator status-online';
+                statusIndicator.innerHTML = '<span>●</span> Online - Reloading...';
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                statusIndicator.className = 'status-indicator status-offline';
+                statusIndicator.innerHTML = '<span>●</span> Offline Mode';
+            }
+        }
+
+        // Listen for connection changes
+        window.addEventListener('online', updateConnectionStatus);
+        window.addEventListener('offline', updateConnectionStatus);
+
+        // Initial check
+        updateConnectionStatus();
+
+        // Auto-retry every 30 seconds
+        setInterval(() => {
+            if (navigator.onLine) {
+                window.location.reload();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
